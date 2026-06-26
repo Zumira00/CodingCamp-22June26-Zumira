@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense & Budget Visualizer</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <header>
+        <h1>Expense & Budget Visualizer</h1>
+    </header>
+
+    <main>
+        <section id="balance-section">
+            <h2>Total Pengeluaran: <span id="total-balance">Rp 0</span></h2>
+            <div style="margin-top: 10px;">
+                <label for="spending-limit">Set Budget Limit: </label>
+                <input type="number" id="spending-limit" placeholder="Contoh: 500000" style="padding: 5px; width: 60%;">
+            </div>
+            <p id="limit-warning" style="color: #ff3333; font-weight: bold; display: none; margin-top: 10px;">⚠️ PENGELUARAN MELEBIHI BATAS BUDGET!</p>
+        </section>
+
+        <section id="custom-category-section">
+            <h3>Tambah Kategori Baru</h3>
+            <div style="display: flex; gap: 10px;">
+                <input type="text" id="new-category-name" placeholder="Nama Kategori Baru" style="flex: 1;">
+                <button type="button" id="add-category-btn" style="padding: 10px;">Tambah</button>
+            </div>
+        </section>
+
+        <section id="form-section">
+            <h3>Add New Transaction</h3>
+            <form id="expense-form">
+                <input type="text" id="item-name" placeholder="Item Name" required>
+                <input type="number" id="item-amount" placeholder="Amount" required>
+                <input type="date" id="item-date" required> <select id="item-category" required>
+                    </select>
+                <button type="submit">Add Transaction</button>
+            </form>
+        </section>
+
+        <section id="filter-section">
+            <h3>Filter Tampilan Bulanan</h3>
+            <select id="month-filter">
+                <option value="all">Semua Bulan</option>
+                <option value="01">Januari</option>
+                <option value="02">Februari</option>
+                <option value="03">Maret</option>
+                <option value="04">April</option>
+                <option value="05">Mei</option>
+                <option value="06">Juni</option>
+                <option value="07">Juli</option>
+                <option value="08">Agustus</option>
+                <option value="09">September</option>
+                <option value="10">Oktober</option>
+                <option value="11">November</option>
+                <option value="12">Desember</option>
+            </select>
+        </section>
+
+        <section id="chart-section">
+            <div style="height: 300px; position: relative;">
+                <canvas id="expense-chart"></canvas>
+            </div>
+        </section>
+
+        <section id="history-section">
+            <h3>Transaction History</h3>
+            <div class="scrollable-list">
+                <ul id="transaction-list"></ul>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
